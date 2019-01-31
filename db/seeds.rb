@@ -10,7 +10,9 @@ User.create!(name:  "Example User",
              email: "wis@gmail.com",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true) #an admin by default
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)#an admin by default
 
 99.times do |n|
   name  = Faker::Name.name
@@ -19,7 +21,9 @@ User.create!(name:  "Example User",
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               activated: true,
+               activated_at: Time.zone.now)
 end
 
 users = User.order(:created_at).take(6)
