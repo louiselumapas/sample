@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token
+  acts_as_voter
   before_save   :downcase_email
   before_create :create_activation_digest
   has_many :microposts, dependent: :destroy # arranges for the dependent microposts to be destroyed when the user itself is destroyed.

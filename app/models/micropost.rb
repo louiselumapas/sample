@@ -1,5 +1,6 @@
 class Micropost < ApplicationRecord
   belongs_to :user
+  acts_as_votable
   default_scope -> { order(created_at: :desc) } # The stabby lambda -> takes in a block and returns a Proc, which can then be evaluated with the call method.
   validates :user_id, presence:true
   validates :content, presence: true, length: { maximum: 140 }

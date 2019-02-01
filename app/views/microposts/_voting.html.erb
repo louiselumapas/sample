@@ -1,0 +1,11 @@
+<span class="liking-system <%= micropost.id%>">
+  <%= link_to like_micropost_path(micropost), :class => 'btn btn-default btn-sm', method: :put, :remote => true do %>
+     <span class="glyphicon glyphicon-thumbs-up"></span>
+  <%= micropost.get_upvotes.size %>
+  <% end %>
+
+  <%= link_to dislike_micropost_path(micropost), :class => 'btn btn-default btn-sm', method: :put, :remote => true do %>
+    <span class="glyphicon glyphicon-thumbs-down"></span>
+  <%= micropost.get_downvotes.size %>
+  <% end %>
+</span>
